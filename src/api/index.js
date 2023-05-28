@@ -8,6 +8,7 @@ API.interceptors.request.use((req) => {
       JSON.parse(localStorage.getItem("profile")).token
     }`;
   }
+  req.url = req.url.replace(/^http:/, "https:");
   return req;
 });
 
