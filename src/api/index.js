@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({baseURL: "https://p-chat-five.vercel.app"});
+const API = axios.create({baseURL: "http://localhost:5000"});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
@@ -8,7 +8,6 @@ API.interceptors.request.use((req) => {
       JSON.parse(localStorage.getItem("profile")).token
     }`;
   }
-  req.url = req.url.replace(/^http:/, "https:");
   return req;
 });
 
